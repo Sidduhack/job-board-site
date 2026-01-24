@@ -1,60 +1,146 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; margin: 0; padding: 20px; }
-        .container { max-width: 900px; margin: 0 auto; }
-        
-        /* Card Style for Dashboard Header */
-        .header { 
-            background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
-            color: white; padding: 30px; border-radius: 12px; 
-            margin-bottom: 30px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); 
-            display: flex; justify-content: space-between; align-items: center;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
         }
-        .header h1 { margin: 0; font-size: 24px; }
-        .header p { margin: 5px 0 0; opacity: 0.8; }
-        .badge-count { background-color: #ef4444; padding: 5px 12px; border-radius: 20px; font-weight: bold; font-size: 14px;}
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Card Style for Dashboard Header */
+        .header {
+            background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .header h6 {
+            margin: 2px;
+        }
+
+        .header p {
+            margin: 5px 0 0;
+            opacity: 0.8;
+        }
+
+        .badge-count {
+            background-color: #ef4444;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
 
         /* Modern Table Styling */
         .job-card {
-            background: white; border-radius: 10px; padding: 20px; 
-            margin-bottom: 15px; border-left: 5px solid #3b82f6;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: transform 0.2s;
-            display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid #3b82f6;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
         }
-        .job-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        
-        .job-info { flex: 1; min-width: 300px; }
-        .job-title { font-size: 18px; font-weight: 700; color: #1e293b; margin-bottom: 5px; }
-        .job-meta { font-size: 14px; color: #64748b; display: flex; gap: 15px; flex-wrap: wrap; }
-        .meta-item { display: flex; align-items: center; gap: 5px; }
 
-        .apply-btn { 
-            background-color: #3b82f6; color: white; text-decoration: none; 
-            padding: 10px 20px; border-radius: 6px; font-weight: 600; 
-            white-space: nowrap; transition: background 0.2s;
+        .job-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        .apply-btn:hover { background-color: #2563eb; }
 
-        .tag { font-size: 12px; padding: 3px 8px; background: #e2e8f0; border-radius: 4px; color: #475569; }
-        .tag.expired { background: #fee2e2; color: #991b1b; }
+        .job-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .job-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+
+        .job-meta {
+            font-size: 14px;
+            color: #64748b;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .apply-btn {
+            background-color: #3b82f6;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+
+        .apply-btn:hover {
+            background-color: #2563eb;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 3px 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            color: #475569;
+        }
+
+        .tag.expired {
+            background: #fee2e2;
+            color: #991b1b;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <!-- HEADER SECTION -->
         <div class="header">
             <div>
-                <h1>📢 Daily Job Board Updates</h1>
+                <h1>📢 Daily Job Board Updates </h1>
+                <h6> filtered by qulification </h6>
                 <p>Last Updated: 24 Jan 2026</p>
             </div>
-            <div class="badge-count">106 New Jobs</div>
+            <div class="badge-count">111 New Jobs</div>
         </div>
-
+        
         <div class="job-card">
             <div class="job-info">
                 <div class="job-title">Generalist and Specialist Officers – 173 Posts</div>
@@ -149,7 +235,7 @@
                 </div>
             </div>
             <div>
-                <a href="https://www.freejobalert.com/articles/indian-air-force-iaf-airmen-medical-assistant-notification-2026-apply-online-3034726" class="apply-btn" target="_self">View Details →</a>
+                <a href="https://www.freejobalert.com/articles/drdo-drdl-iti-apprentices-recruitment-2026-apply-online-3035017" class="apply-btn" target="_self">View Details →</a>
             </div>
         </div>
         
@@ -163,7 +249,7 @@
                 </div>
             </div>
             <div>
-                <a href="https://www.freejobalert.com/articles/drdo-drdl-iti-apprentices-recruitment-2026-apply-online-3035017" class="apply-btn" target="_self">View Details →</a>
+                <a href="https://www.freejobalert.com/articles/indian-army-ssc-tech-women-recruitment-2026-apply-online-for-30-posts-3034039" class="apply-btn" target="_self">View Details →</a>
             </div>
         </div>
         
@@ -373,7 +459,7 @@
                 </div>
             </div>
             <div>
-                <a href="https://www.freejobalert.com/articles/icmr-specialist-grade-iii-recruitment-2026-apply-online-for-05-posts-3035656" class="apply-btn" target="_self">View Details →</a>
+                <a href="https://www.freejobalert.com/articles/iit-delhi-senior-research-fellow-recruitment-2026-apply-offline-for-01-posts-3035687" class="apply-btn" target="_self">View Details →</a>
             </div>
         </div>
         
@@ -387,7 +473,7 @@
                 </div>
             </div>
             <div>
-                <a href="https://www.freejobalert.com/articles/hans-raj-college-delhi-university-non-teaching-recruitment-2026-apply-online-for-41-posts-3035130" class="apply-btn" target="_self">View Details →</a>
+                <a href="https://www.freejobalert.com/articles/ncjmh-junior-resident-recruitment-2026-walk-in-for-01-posts-3035671" class="apply-btn" target="_self">View Details →</a>
             </div>
         </div>
         
@@ -673,6 +759,35 @@
         
         <div class="job-card">
             <div class="job-info">
+                <div class="job-title">Technician, Attendant and More – 239 Posts</div>
+                <div class="job-meta">
+                    <span class="tag">🎓 Any Bachelors Degree, B.B.A, B.Com, B.Pharma, B.Sc, Diploma, B.Lib, 12TH, 10TH,
+Any Masters Degree</span>
+                    <span class="tag">📝 1+ Vacancy</span>
+                    <span class="meta-item">📅 Apply by: <strong style="color:#d9534f;">25-03-2026</strong></span>
+                </div>
+            </div>
+            <div>
+                <a href="https://www.freejobalert.com/articles/jk-anganwadi-recruitment-2026-apply-offline-for-anganwadi-helpers-and-workers-posts-3034313" class="apply-btn" target="_self">View Details →</a>
+            </div>
+        </div>
+        
+        <div class="job-card">
+            <div class="job-info">
+                <div class="job-title">MTS, Nursing Assistant and More – 15 Posts</div>
+                <div class="job-meta">
+                    <span class="tag">🎓 Any Graduate, BDS, B.Sc, MBBS, Diploma, GNM</span>
+                    <span class="tag">📝 1+ Vacancy</span>
+                    <span class="meta-item">📅 Apply by: <strong style="color:#d9534f;">12-02-2026</strong></span>
+                </div>
+            </div>
+            <div>
+                <a href="https://www.freejobalert.com/articles/jssc-special-teacher-recruitment-2025-apply-online-for-3451-posts-3031823" class="apply-btn" target="_self">View Details →</a>
+            </div>
+        </div>
+        
+        <div class="job-card">
+            <div class="job-info">
                 <div class="job-title">Apprentices – 364 Posts</div>
                 <div class="job-meta">
                     <span class="tag">🎓 B.A, B.B.A, B.Com, B.Tech/B.E, Diploma, ITI, MBA/PGDM</span>
@@ -743,6 +858,20 @@
         
         <div class="job-card">
             <div class="job-info">
+                <div class="job-title">Ayurveda Pharmacist</div>
+                <div class="job-meta">
+                    <span class="tag">🎓 Diploma</span>
+                    <span class="tag">📝 1+ Vacancy</span>
+                    <span class="meta-item">📅 Apply by: <strong style="color:#d9534f;">27-01-2026</strong></span>
+                </div>
+            </div>
+            <div>
+                <a href="https://www.freejobalert.com/articles/cmd-lsgd-kerala-recruitment-2026-apply-online-for-231-engineer-lab-assistant-and-other-posts-3035333" class="apply-btn" target="_self">View Details →</a>
+            </div>
+        </div>
+        
+        <div class="job-card">
+            <div class="job-info">
                 <div class="job-title">DEO, Clerk and Other – 172 Posts</div>
                 <div class="job-meta">
                     <span class="tag">🎓 Any Graduate, BDS, B.Pharma, B.Sc, Diploma, 12TH, MS/MD, 7th, D.Pharm, DMLT</span>
@@ -751,7 +880,7 @@
                 </div>
             </div>
             <div>
-                <a href="https://www.freejobalert.com/articles/hll-recruitment-2026-walk-in-for-03-project-technical-support-accounts-officer-and-more-posts-3035504" class="apply-btn" target="_self">View Details →</a>
+                <a href="https://www.freejobalert.com/articles/hll-executives-recruitment-2026-apply-online-for-03-posts-3035472" class="apply-btn" target="_self">View Details →</a>
             </div>
         </div>
         
@@ -765,7 +894,7 @@
                 </div>
             </div>
             <div>
-                <a href="https://www.freejobalert.com/articles/cusat-technical-assistant-grade-iii-recruitment-2026-apply-online-for-01-posts-3035467" class="apply-btn" target="_self">View Details →</a>
+                <a href="https://www.freejobalert.com/articles/nam-kerala-recruitment-2026-apply-offline-for-02-yoga-demonstrator-therapist-posts-3035433" class="apply-btn" target="_self">View Details →</a>
             </div>
         </div>
         
@@ -1130,7 +1259,7 @@ MPT, BOT</span>
                 </div>
             </div>
             <div>
-                <a href="https://www.freejobalert.com/articles/iim-udaipur-recruitment-2026-apply-online-for-01-associate-manager-manager-posts-3035074" class="apply-btn" target="_self">View Details →</a>
+                <a href="https://www.freejobalert.com/articles/indian-army-dg-eme-recruitment-2026-apply-offline-for-06-barber-tradesman-mate-and-more-posts-3035022" class="apply-btn" target="_self">View Details →</a>
             </div>
         </div>
         
@@ -1215,7 +1344,7 @@ M.Phil/Ph.D</span>
                 </div>
             </div>
             <div>
-                <a href="https://www.freejobalert.com/articles/dbrau-faculty-recruitment-2026-apply-online-for-53-posts-3035606" class="apply-btn" target="_self">View Details →</a>
+                <a href="https://www.freejobalert.com/articles/kanpur-dehat-district-bc-sakhi-recruitment-2026-apply-offline-3035639" class="apply-btn" target="_self">View Details →</a>
             </div>
         </div>
         
@@ -1357,6 +1486,34 @@ ANM</span>
             </div>
             <div>
                 <a href="https://www.freejobalert.com/articles/sail-asp-gdmo-recruitment-2026-walk-in-for-02-posts-3034885" class="apply-btn" target="_self">View Details →</a>
+            </div>
+        </div>
+        
+        <div class="job-card">
+            <div class="job-info">
+                <div class="job-title">MTS, Nursing Assistant and More – 15 Posts</div>
+                <div class="job-meta">
+                    <span class="tag">🎓 Any Graduate, BDS, B.Sc, MBBS, Diploma, GNM</span>
+                    <span class="tag">📝 1+ Vacancy</span>
+                    <span class="meta-item">📅 Apply by: <strong style="color:#d9534f;">12-02-2026</strong></span>
+                </div>
+            </div>
+            <div>
+                <a href="https://www.freejobalert.com/articles/echs-hisar-recruitment-2026-apply-offline-for-178-peon-clerk-driver-and-more-posts-3035598" class="apply-btn" target="_self">View Details →</a>
+            </div>
+        </div>
+        
+        <div class="job-card">
+            <div class="job-info">
+                <div class="job-title">Ayurveda Pharmacist</div>
+                <div class="job-meta">
+                    <span class="tag">🎓 Diploma</span>
+                    <span class="tag">📝 1+ Vacancy</span>
+                    <span class="meta-item">📅 Apply by: <strong style="color:#d9534f;">27-01-2026</strong></span>
+                </div>
+            </div>
+            <div>
+                <a href="https://www.freejobalert.com/articles/esic-faridabad-senior-resident-recruitment-2026-walk-in-for-50-posts-3035597" class="apply-btn" target="_self">View Details →</a>
             </div>
         </div>
         
@@ -1548,4 +1705,5 @@ ANM</span>
         </div>
     </div> <!-- End Container -->
 </body>
+
 </html>
